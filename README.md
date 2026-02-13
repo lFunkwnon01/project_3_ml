@@ -56,4 +56,50 @@ git clone <YOUR_GITHUB_REPO_URL>
 cd <YOUR_REPO_FOLDER>
 ```
 
-2) Create and activate a virtual environment
+### 2) Create and activate a virtual environment
+Windows (PowerShell)
+```bash
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+macOS / Linux
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3) Install dependencies
+
+```bash
+python -m pip install --upgrade pip
+pip install numpy pandas matplotlib scikit-learn seaborn scipy
+```
+### 4) Download the dataset (UJIIndoorLoc)
+Download from UCI: UJIIndoorLoc dataset (training file is typically trainingData.csv).
+Place it somewhere on your machine.
+
+Configure Dataset Path (IMPORTANT)
+Two scripts (kmeans_internal.py, kmeans_external.py) currently use a hard-coded path:
+
+```bash
+DATA_PATH = r"C:\Users\ASUS\Downloads\trainingData.csv"
+```
+
+Before running, change DATA_PATH to point to your local trainingData.csv.
+
+Example:
+
+Windows: r"C:\Users\<you>\Downloads\trainingData.csv"
+macOS/Linux: r"/Users/<you>/Downloads/trainingData.csv"
+DBSCAN scripts path expectations
+dbscan_external (1).py and main_compare_representations (1).py expect:
+
+<repo_root>/
+  data/
+    trainingData.csv
+  results/
+    plots/
+So for those scripts, the easiest setup is:
+
+Create a data/ folder at repo root
+Copy trainingData.csv into data/trainingData.csv
