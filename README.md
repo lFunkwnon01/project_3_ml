@@ -54,6 +54,6 @@ Core libraries used across scripts:
 ```bash
 git clone <YOUR_GITHUB_REPO_URL>
 cd <YOUR_REPO_FOLDER>
----
+```
 
 2) Create and activate a virtual environment
